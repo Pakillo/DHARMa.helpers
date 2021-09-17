@@ -16,7 +16,9 @@
 #' # Poisson regression for the number of seizures in epileptic patients
 #' fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
 #'            data = epilepsy, family = poisson())
-#' dh_check_brms(fit1, integer = TRUE)          
+#' simres <- dh_check_brms(fit1, integer = TRUE) 
+#' plot(simres, form = epilepsy$zAge)
+#' testDispersion(simres)         
 #' }
 dh_check_brms <- function(model,             # brms model
                        integer = FALSE,   # integer response? (TRUE/FALSE)
