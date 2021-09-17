@@ -18,3 +18,5 @@ URL: https://github.com/Pakillo/DHARMa.helpers
 BugReports: https://github.com/Pakillo/DHARMa.helpers/issues
 Imports: 
     DHARMa
+Suggests: 
+    brms
