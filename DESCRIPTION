@@ -1,5 +1,5 @@
 Package: DHARMa.helpers
-Title: What the Package Does (One Line, Title Case)
+Title: Helper functions to check models not (yet) directly supported by DHARMa
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Francisco",
@@ -7,12 +7,14 @@ Authors@R:
            role = c("aut", "cre"),
            email = "f.rodriguez.sanc@gmail.com",
            comment = c(ORCID = "0000-0002-7981-1599"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Helper functions to check models not (yet) directly supported by the DHARMa package,
+    such as Bayesian models fitted with brms, or exponential random graph models (ERGMs).
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 URL: https://github.com/Pakillo/DHARMa.helpers
 BugReports: https://github.com/Pakillo/DHARMa.helpers/issues
+Imports: 
+    DHARMa
