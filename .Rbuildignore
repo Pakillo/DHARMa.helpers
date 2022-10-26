@@ -1,5 +1,11 @@
 ^DHARMa\.helpers\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+README_cache
 
 ^LICENSE\.md$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+

@@ -34,11 +34,28 @@ Check Bayesian models fitted with brms
 }
 \examples{
 \dontrun{
+# Example models taken from brms::brm()
+
 # Poisson regression for the number of seizures in epileptic patients
 fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
            data = epilepsy, family = poisson())
-simres <- dh_check_brms(fit1, integer = TRUE) 
+simres <- dh_check_brms(fit1, integer = TRUE)
 plot(simres, form = epilepsy$zAge)
-testDispersion(simres)         
+testDispersion(simres)
+
+
+# Probit regression using the binomial family
+ntrials <- sample(1:10, 100, TRUE)
+success <- rbinom(100, size = ntrials, prob = 0.4)
+x <- rnorm(100)
+data4 <- data.frame(ntrials, success, x)
+fit4 <- brm(success | trials(ntrials) ~ x, data = data4,
+            family = binomial("probit"))
+summary(fit4)
+simres <- dh_check_brms(fit4, integer = TRUE)
+plot(simres, form = data4$x)
 }
+}
+\seealso{
+https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/
 }

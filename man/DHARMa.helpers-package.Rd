@@ -6,13 +6,13 @@
 \alias{DHARMa.helpers-package}
 \title{DHARMa.helpers: Helper functions to check models not (yet) directly supported by DHARMa}
 \description{
-Helper functions to check models not (yet) directly supported by the DHARMa package,
-    such as Bayesian models fitted with brms, or exponential random graph models (ERGMs).
+Helper functions to check models not (yet) directly supported by the DHARMa package, such as Bayesian models fitted with brms, or exponential random graph models (ERGMs).
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/Pakillo/DHARMa.helpers}
+  \item \url{https://pakillo.github.io/DHARMa.helpers/}
   \item Report bugs at \url{https://github.com/Pakillo/DHARMa.helpers/issues}
 }
 
