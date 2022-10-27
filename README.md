@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Pakillo/DHARMa.helpers/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Pakillo/DHARMa.helpers/actions/workflows/R-CMD-check.yaml)
+[![HitCount](https://hits.dwyl.com/Pakillo/DHARMAhelpers.svg?style=flat-square)](http://hits.dwyl.com/Pakillo/DHARMAhelpers)
+[![HitCount](https://hits.dwyl.com/Pakillo/DHARMAhelpers.svg?style=flat-square&show=unique)](http://hits.dwyl.com/Pakillo/DHARMAhelpers)
 <!-- badges: end -->
 
 <https://pakillo.github.io/DHARMa.helpers>
@@ -15,7 +17,7 @@ statistical models via the
 [DHARMa](https://cran.r-project.org/web/packages/DHARMa/vignettes/DHARMa.html)
 package. By now, only Bayesian models fitted with
 [brms](https://paul-buerkner.github.io/brms/) are implemented. See [this
-post](https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/)
+blogpost](https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/)
 for a detailed explanation of the approach.
 
 ## Installation
