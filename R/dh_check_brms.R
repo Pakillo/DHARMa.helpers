@@ -11,7 +11,7 @@
 #' @export
 #' @import DHARMa
 #'
-#' @seealso https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/
+#' @seealso <https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/>
 #'
 #' @examples
 #' \dontrun{

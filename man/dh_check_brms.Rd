@@ -57,5 +57,5 @@ plot(simres, form = data4$x)
 }
 }
 \seealso{
-https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/
+\url{https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/}
 }
