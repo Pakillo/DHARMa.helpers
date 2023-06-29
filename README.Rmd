@@ -41,15 +41,39 @@ library(DHARMa.helpers)
 
 ### Poisson regression
 
+Fit model:
+
 ```{r cache = TRUE}
 # Example model taken brms::brm()
 # Poisson regression for the number of seizures in epileptic patients
 fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
             data = epilepsy, family = poisson(), refresh = 0)
+```
+
+Check with DHARMa: 
+
+```{r}
 simres <- dh_check_brms(fit1, integer = TRUE)
+```
+
+Note that we use `integer = TRUE` in this case as we are modelling a discrete response (counts).
+
+Now check residuals against a predictor (zAge):
+
+```{r}
 plot(simres, form = epilepsy$zAge)
+```
+
+Test overdispersion:
+
+```{r}
 DHARMa::testDispersion(simres)
 ```
+
+
+See https://pakillo.github.io/DHARMa.helpers/reference/dh_check_brms.html for more examples.
+
+
 
 
 

@@ -36,6 +36,8 @@ library(DHARMa.helpers)
 
 ### Poisson regression
 
+Fit model:
+
 ``` r
 # Example model taken brms::brm()
 # Poisson regression for the number of seizures in epileptic patients
@@ -43,27 +45,43 @@ fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
             data = epilepsy, family = poisson(), refresh = 0)
 #> Compiling Stan program...
 #> Start sampling
+```
+
+Check with DHARMa:
+
+``` r
 simres <- dh_check_brms(fit1, integer = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+Note that we use `integer = TRUE` in this case as we are modelling a
+discrete response (counts).
+
+Now check residuals against a predictor (zAge):
 
 ``` r
 plot(simres, form = epilepsy$zAge)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+Test overdispersion:
 
 ``` r
 DHARMa::testDispersion(simres)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
     #> 
     #>  DHARMa nonparametric dispersion test via sd of residuals fitted vs.
     #>  simulated
     #> 
     #> data:  simulationOutput
-    #> dispersion = 1.1911, p-value = 0.14
+    #> dispersion = 1.1747, p-value = 0.194
     #> alternative hypothesis: two.sided
+
+See
+<https://pakillo.github.io/DHARMa.helpers/reference/dh_check_brms.html>
+for more examples.
