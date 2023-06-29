@@ -14,7 +14,7 @@ dh_check_brms(
 )
 }
 \arguments{
-\item{model}{A fitted model \code{\link[brms:brmsfit-class]{brms::brmsfit-class()}}.}
+\item{model}{A fitted model \code{\link[brms:brmsfit-class]{brms::brmsfit-class()}}. Categorical and ordinal models not supported by now.}
 
 \item{integer}{Logical (TRUE/FALSE), indicating if response is an integer, as in Poisson and binomial models}
 

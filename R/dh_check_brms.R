@@ -1,6 +1,6 @@
 #' Check Bayesian models fitted with brms
 #'
-#' @param model A fitted model [brms::brmsfit-class()].
+#' @param model A fitted model [brms::brmsfit-class()]. Categorical and ordinal models not supported by now.
 #' @param integer Logical (TRUE/FALSE), indicating if response is an integer, as in Poisson and binomial models
 #' @param plot Logical. Plot residual checks? Default is TRUE.
 #' @param nsamples Integer. Number of samples to draw from the posterior.
