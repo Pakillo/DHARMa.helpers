@@ -6,6 +6,7 @@
 \usage{
 dh_check_brms(
   model,
+  resp = NULL,
   integer = FALSE,
   plot = TRUE,
   nsamples = 1000,
@@ -14,9 +15,13 @@ dh_check_brms(
 )
 }
 \arguments{
-\item{model}{A fitted model \code{\link[brms:brmsfit-class]{brms::brmsfit-class()}}. Categorical and ordinal models not supported by now.}
+\item{model}{A fitted model \code{\link[brms:brmsfit-class]{brms::brmsfit-class()}}.
+Categorical and ordinal models not supported by now.}
 
-\item{integer}{Logical (TRUE/FALSE), indicating if response is an integer, as in Poisson and binomial models}
+\item{resp}{Optional name of response variable (for multivariate models).}
+
+\item{integer}{Logical (TRUE/FALSE), indicating if response is an integer,
+as in Poisson and binomial models}
 
 \item{plot}{Logical. Plot residual checks? Default is TRUE.}
 
@@ -33,8 +38,9 @@ An object of type \code{DHARMa}. See \code{\link[DHARMa:createDHARMa]{DHARMa::cr
 Check Bayesian models fitted with brms
 }
 \examples{
-\dontrun{
-# Example models taken from brms::brm()
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+#' # Example models taken from brms::brm()
 
 # Poisson regression for the number of seizures in epileptic patients
 fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
@@ -54,7 +60,19 @@ fit4 <- brm(success | trials(ntrials) ~ x, data = data4,
 summary(fit4)
 simres <- dh_check_brms(fit4, integer = TRUE)
 plot(simres, form = data4$x)
-}
+
+
+# Multivariate (multiresponse) model
+data("BTdata", package = "MCMCglmm")
+bf_tarsus <- bf(tarsus ~ sex + (1|p|fosternest) + (1|q|dam))
+bf_back <- bf(back ~ hatchdate + (1|p|fosternest) + (1|q|dam))
+fit <- brm(bf_tarsus + bf_back + set_rescor(TRUE),
+            data = BTdata, chains = 2, cores = 2)
+dh_check_brms(fit, resp = "tarsus")
+brms::pp_check(fit, resp = "tarsus")
+dh_check_brms(fit, resp = "back")
+brms::pp_check(fit, resp = "back")
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \url{https://frodriguezsanchez.net/post/using-dharma-to-check-bayesian-models-fitted-with-brms/}
