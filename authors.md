@@ -10,14 +10,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/Pakillo/DHARMa.helpers/blob/master/DESCRIPTION)
 
-Rodríguez-Sánchez F (2025). *DHARMa.helpers: Helper functions to check
+Rodríguez-Sánchez F (2026). *DHARMa.helpers: Helper functions to check
 models not (yet) directly supported by DHARMa*. R package version 0.0.2,
 <https://github.com/Pakillo/DHARMa.helpers>.
 
     @Manual{,
       title = {DHARMa.helpers: Helper functions to check models not (yet) directly supported by DHARMa},
       author = {Francisco Rodríguez-Sánchez},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.0.2},
       url = {https://github.com/Pakillo/DHARMa.helpers},
     }
