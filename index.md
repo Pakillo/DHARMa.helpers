@@ -13,6 +13,7 @@ for a detailed explanation of the approach.
 ## Installation
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("Pakillo/DHARMa.helpers")
 ```
@@ -20,6 +21,7 @@ remotes::install_github("Pakillo/DHARMa.helpers")
 ## Example
 
 ``` r
+
 library(brms)
 library(DHARMa.helpers)
 ```
@@ -29,6 +31,7 @@ library(DHARMa.helpers)
 Fit model:
 
 ``` r
+
 # Example model taken brms::brm()
 # Poisson regression for the number of seizures in epileptic patients
 fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
@@ -40,6 +43,7 @@ fit1 <- brm(count ~ zAge + zBase * Trt + (1|patient),
 Check with DHARMa:
 
 ``` r
+
 simres <- dh_check_brms(fit1, integer = TRUE)
 ```
 
@@ -51,6 +55,7 @@ discrete response (counts).
 Now check residuals against a predictor (zAge):
 
 ``` r
+
 plot(simres, form = epilepsy$zAge)
 ```
 
@@ -59,6 +64,7 @@ plot(simres, form = epilepsy$zAge)
 Test overdispersion:
 
 ``` r
+
 DHARMa::testDispersion(simres)
 ```
 
